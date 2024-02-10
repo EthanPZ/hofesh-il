@@ -1,0 +1,129 @@
+@import url("./main-page.css");
+
+:root {
+  --mainBg: #000;
+  --divBg: rgba(255, 255, 255, 0.05);
+  --divBgHover: rgba(255, 255, 255, 0.1);
+  --holidayFontSize: 30px;
+  --gridGap: 20px;
+  --border-radius: 10px;
+  --summerDivPadding: 50px;
+  --holidayFontWeight: 200;
+  --blur: blur(10px);
+  --mainColor: #6100ff;
+  --secondaryColor: #8f00ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+body {
+  background: var(--mainBg) url("../resources/bg-gradient.png") no-repeat;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "IBM Plex Sans Hebrew", sans-serif;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: #8f00ff;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  filter: drop-shadow(0 5px 10px #000);
+
+  transition: all 0.2s linear;
+}
+
+.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.close {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  visibility: hidden;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--divBg);
+  text-align: center;
+  z-index: 999;
+  width: 40%;
+  min-width: 300px;
+  max-width: 500px;
+  border: 1px solid #8f00ff;
+  box-shadow: inset #000 0px 0px 20px -10px;
+  opacity: 0;
+
+  transition: all 0.15s linear;
+}
+
+.modal > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.modal > header > div {
+  margin: auto;
+}
+
+.modal > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30dvh;
+}
+
+.modal > div:nth-child(2) h2 {
+  font-size: 60px;
+}
+
+.modal > div:nth-child(2) p {
+  font-size: 20px;
+}
+
+.x-icon {
+  position: sticky;
+  top: 0;
+  right: 0;
+}
+
+.bg-blur {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background-color: #00000046;
+  z-index: 998;
+}
+
+.loading {
+  text-align: center;
+  font-size: 20px;
+}
