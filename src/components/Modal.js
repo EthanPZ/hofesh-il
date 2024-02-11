@@ -7,11 +7,7 @@ export default function Modal({ onToggleOpen, isOpened, selectedHoliday }) {
     <>
       <div className={`modal ${isOpened ? "open" : "close"}`}>
         <header>
-          <span
-            onClick={() => {
-              onToggleOpen();
-            }}
-          >
+          <span onClick={onToggleOpen}>
             <box-icon
               size="md"
               name="x"

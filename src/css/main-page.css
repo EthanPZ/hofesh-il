@@ -74,15 +74,15 @@
   gap: var(--gridGap);
 }
 
-.summer-holiday {
+.featured-holiday {
   display: flex;
   gap: var(--gridGap);
 }
 
-.summer {
+.featured {
   width: 50%;
   text-align: center;
-  padding: var(--summerDivPadding) !important;
+  padding: var(--featuredDivPadding) !important;
 }
 
 .holidays-wrapper {
@@ -170,7 +170,7 @@ footer > div img {
     width: 100%;
   }
 
-  .summer {
+  .featured {
     padding: 30px !important;
   }
 

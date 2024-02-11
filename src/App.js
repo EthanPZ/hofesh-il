@@ -6,7 +6,7 @@ import Holiday from "./components/Holiday";
 import HolidayDivsContainer from "./components/HolidayDivsContainer";
 import MainContainer from "./components/MainContainer";
 import Modal from "./components/Modal";
-import Loading from "./components/Loading";
+import CurrentState from "./components/CurrentState";
 
 export default function App() {
   const [holidays, setHolidays] = useState([]);
@@ -22,6 +22,8 @@ export default function App() {
         holiday.hebrew.includes(query) ||
         holiday.title.toLowerCase().includes(query)
     );
+
+  const isNoResults = holidaysArr.length <= 0;
 
   function handleToggleOpen() {
     setIsOpened((open) => !open);
@@ -56,21 +58,25 @@ export default function App() {
     <>
       <MainContainer query={query} setQuery={setQuery}>
         {isLoading ? (
-          <Loading />
+          <CurrentState>טוען...</CurrentState>
         ) : (
           <>
-            <HolidayDivsContainer>
-              <div className="holidays-wrapper">
-                {holidaysArr.map((holiday, i) => (
-                  <Holiday
-                    holiday={holiday}
-                    key={i}
-                    onToggleOpen={handleToggleOpen}
-                    setSelectedHoliday={setSelectedHoliday}
-                  />
-                ))}
-              </div>
-            </HolidayDivsContainer>
+            {!isNoResults ? (
+              <HolidayDivsContainer>
+                <div className="holidays-wrapper">
+                  {holidaysArr.map((holiday, i) => (
+                    <Holiday
+                      holiday={holiday}
+                      key={i}
+                      onToggleOpen={handleToggleOpen}
+                      setSelectedHoliday={setSelectedHoliday}
+                    />
+                  ))}
+                </div>
+              </HolidayDivsContainer>
+            ) : (
+              <CurrentState>נסה לחפש משהו אחר, נראה שזה לא נמצא.</CurrentState>
+            )}
           </>
         )}
       </MainContainer>
