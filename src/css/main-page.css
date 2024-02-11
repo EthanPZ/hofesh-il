@@ -18,6 +18,22 @@
   margin-bottom: var(--gridGap);
 }
 
+.header div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header div input {
+  background: var(--inputBgColor);
+  border: none;
+  padding: 10px;
+  border-radius: 999px;
+  color: white;
+  outline: none;
+  font-family: var(--fontFam);
+}
+
 .header h1,
 .header h2 {
   font-size: var(--holidayFontSize);
@@ -100,7 +116,7 @@
 }
 
 footer {
-  position: block;
+  position: static;
   bottom: 0;
   left: 0;
   right: 0;
@@ -138,6 +154,10 @@ footer > div img {
   }
 
   .header h1 {
+    transform: translateX(calc(120.484px - 18px));
+  }
+
+  .header h1 {
     margin: auto;
   }
 
@@ -160,11 +180,26 @@ footer > div img {
 }
 
 @media only screen and (max-width: 860px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header h1 {
+    transform: none;
+    order: 0;
+  }
+
+  .header div {
+    order: 1;
+  }
+
   .holidays-wrapper {
     grid-template-columns: repeat(3, 1fr);
   }
 
   footer {
+    position: static;
     flex-direction: column;
     gap: 10px;
   }

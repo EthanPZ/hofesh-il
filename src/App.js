@@ -13,6 +13,15 @@ export default function App() {
   const [isOpened, setIsOpened] = useState(false);
   const [selectedHoliday, setSelectedHoliday] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const holidaysArr = holidays
+    .slice()
+    .filter(
+      (holiday) =>
+        holiday.hebrew.includes(query) ||
+        holiday.title.toLowerCase().includes(query)
+    );
 
   function handleToggleOpen() {
     setIsOpened((open) => !open);
@@ -45,14 +54,14 @@ export default function App() {
 
   return (
     <>
-      <MainContainer>
+      <MainContainer query={query} setQuery={setQuery}>
         {isLoading ? (
           <Loading />
         ) : (
           <>
             <HolidayDivsContainer>
               <div className="holidays-wrapper">
-                {holidays.map((holiday, i) => (
+                {holidaysArr.map((holiday, i) => (
                   <Holiday
                     holiday={holiday}
                     key={i}

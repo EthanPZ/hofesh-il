@@ -12,6 +12,19 @@
   --blur: blur(10px);
   --mainColor: #6100ff;
   --secondaryColor: #8f00ff;
+
+  --inputBgColor: rgb(97, 0, 255, 0.5);
+  --fontFam: "IBM Plex Sans Hebrew", sans-serif;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--divBg);
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--mainColor);
+  border-radius: 999px;
 }
 
 * {
@@ -25,7 +38,7 @@ body {
   background: var(--mainBg) url("../resources/bg-gradient.png") no-repeat;
   background-size: cover;
   color: rgba(255, 255, 255, 0.8);
-  font-family: "IBM Plex Sans Hebrew", sans-serif;
+  font-family: var(--fontFam);
   user-select: none;
   overflow-x: hidden;
 }

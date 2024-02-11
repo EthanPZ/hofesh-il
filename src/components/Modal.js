@@ -7,7 +7,11 @@ export default function Modal({ onToggleOpen, isOpened, selectedHoliday }) {
     <>
       <div className={`modal ${isOpened ? "open" : "close"}`}>
         <header>
-          <span onClick={onToggleOpen}>
+          <span
+            onClick={() => {
+              onToggleOpen();
+            }}
+          >
             <box-icon
               size="md"
               name="x"
@@ -16,26 +20,22 @@ export default function Modal({ onToggleOpen, isOpened, selectedHoliday }) {
             ></box-icon>
           </span>
 
-          {isOpened && (
-            <div>
-              <h2>{selectedHoliday?.hebrew}</h2>
-              {selectedHoliday && (
-                <p>{convertToIsraeliDate(selectedHoliday?.date)}</p>
-              )}
-            </div>
-          )}
+          <div>
+            <h2>{selectedHoliday?.hebrew}</h2>
+            {selectedHoliday && (
+              <p>{convertToIsraeliDate(selectedHoliday?.date)}</p>
+            )}
+          </div>
         </header>
 
-        {isOpened && (
-          <div>
-            <h2>
-              {daysLeft(selectedHoliday?.date) <= 0
-                ? "0"
-                : daysLeft(selectedHoliday?.date)}
-            </h2>
-            <p>ימים נותרו</p>
-          </div>
-        )}
+        <div>
+          <h2>
+            {daysLeft(selectedHoliday?.date) <= 0
+              ? "0"
+              : daysLeft(selectedHoliday?.date)}
+          </h2>
+          <p>ימים נותרו</p>
+        </div>
       </div>
 
       {isOpened && <BackgroundBlur />}
