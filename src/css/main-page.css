@@ -214,11 +214,10 @@ footer > div img {
   }
 
   .footer-wrapper {
-    padding: 0;
+    padding: 70px;
   }
 
   footer {
-    position: static;
     flex-direction: column;
     gap: 10px;
   }
