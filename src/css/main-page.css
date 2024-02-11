@@ -111,12 +111,27 @@
 }
 
 .holiday p {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   font-size: var(--holidayFontSize);
   font-weight: var(--holidayFontWeight);
 }
 
+.side-note {
+  font-size: 15px;
+  color: var(--darkerPColor);
+  background-color: var(--divBg);
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+
+.footer-wrapper {
+  padding-top: 120px;
+}
+
 footer {
-  position: static;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -196,6 +211,10 @@ footer > div img {
 
   .holidays-wrapper {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-wrapper {
+    padding: 0;
   }
 
   footer {

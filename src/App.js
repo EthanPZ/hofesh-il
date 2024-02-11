@@ -7,6 +7,7 @@ import HolidayDivsContainer from "./components/HolidayDivsContainer";
 import MainContainer from "./components/MainContainer";
 import Modal from "./components/Modal";
 import CurrentState from "./components/CurrentState";
+import bgGradient from "./resources/bg-gradient.png";
 
 export default function App() {
   const [holidays, setHolidays] = useState([]);
@@ -56,6 +57,8 @@ export default function App() {
 
   return (
     <>
+      <div className="bg"></div>
+
       <MainContainer query={query} setQuery={setQuery}>
         {isLoading ? (
           <CurrentState>טוען...</CurrentState>

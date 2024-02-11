@@ -1,3 +1,5 @@
+import daysLeft from "../functions/daysLeft";
+
 export default function Holiday({ holiday, onToggleOpen, setSelectedHoliday }) {
   return (
     <article
@@ -7,7 +9,12 @@ export default function Holiday({ holiday, onToggleOpen, setSelectedHoliday }) {
         onToggleOpen();
       }}
     >
-      <p>{holiday.hebrew}</p>
+      <p>
+        {holiday?.hebrew}{" "}
+        {daysLeft(holiday?.date) <= 0 && (
+          <span className="side-note">(עברנו אותו)</span>
+        )}
+      </p>
     </article>
   );
 }

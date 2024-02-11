@@ -35,13 +35,30 @@
   direction: rtl;
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  background: var(--mainBg) url("../resources/bg-gradient.png") no-repeat;
+  position: relative;
+  background: var(--mainBg);
   background-size: cover;
   color: rgba(255, 255, 255, 0.8);
   font-family: var(--fontFam);
   user-select: none;
   overflow-x: hidden;
+  min-height: 100%;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("../resources/bg-gradient.png") no-repeat center center;
+  background-size: cover;
 }
 
 a {
@@ -152,6 +169,10 @@ a {
 }
 
 @media only screen and (max-width: 860px) {
+  .modal {
+    width: 80%;
+  }
+
   .modal > div:nth-child(2) h2 {
     font-size: 50px;
   }
