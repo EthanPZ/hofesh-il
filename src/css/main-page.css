@@ -5,9 +5,7 @@
   background: var(--divBg);
   padding: 25px;
   border-radius: var(--border-radius);
-  margin-top: 20px;
   border: 1px solid var(--secondaryColor);
-  /* box-shadow: 0 0 10px 5px var(--secondaryColor); */
   backdrop-filter: var(--blur);
 }
 
@@ -32,6 +30,9 @@
   color: white;
   outline: none;
   font-family: var(--fontFam);
+  text-decoration: none;
+
+  transition: all 0.2s linear;
 }
 
 .header h1,

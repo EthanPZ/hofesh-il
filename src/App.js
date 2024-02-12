@@ -57,8 +57,6 @@ export default function App() {
 
   return (
     <>
-      <div className="bg"></div>
-
       <MainContainer query={query} setQuery={setQuery}>
         {isLoading ? (
           <CurrentState>טוען...</CurrentState>
@@ -89,7 +87,9 @@ export default function App() {
         selectedHoliday={selectedHoliday}
       />
       <Footer />
+
       <div className="dot"></div>
+      <div className="bg"></div>
     </>
   );
 }

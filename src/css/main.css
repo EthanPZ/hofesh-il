@@ -48,6 +48,7 @@ body {
   user-select: none;
   overflow-x: hidden;
   min-height: 100%;
+  padding-top: 20px;
 }
 
 .bg {
