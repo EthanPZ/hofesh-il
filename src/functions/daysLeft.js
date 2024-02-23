@@ -5,5 +5,5 @@ export default function daysLeft(date) {
   const firstDate = new Date(date);
   const secondDate = new Date();
 
-  return Math.round((firstDate - secondDate) / oneDay) + 1;
+  return Math.round((firstDate - secondDate) / oneDay);
 }
