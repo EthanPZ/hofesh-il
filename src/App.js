@@ -30,6 +30,12 @@ export default function App() {
   }
 
   useEffect(function () {
+    isOpened
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  });
+
+  useEffect(function () {
     async function fetchHolidays() {
       try {
         setIsLoading(true);
