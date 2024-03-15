@@ -3,7 +3,6 @@ import convertToIsraeliDate from "../functions/convertToIsraeliDate";
 import BackgroundBlur from "./BackgroundBlur";
 import JSConfetti from "js-confetti";
 import { formatJewishDateInHebrew, toJewishDate } from "jewish-date";
-import { useEffect } from "react";
 
 const jsConfetti = new JSConfetti();
 
