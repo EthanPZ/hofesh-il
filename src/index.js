@@ -2,10 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./css/main.css";
+import { HolidaysProvider } from "./contexts/HolidaysContext";
+import { UIProvider } from "./contexts/UIContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <UIProvider>
+      <HolidaysProvider>
+        <App />
+      </HolidaysProvider>
+    </UIProvider>
   </React.StrictMode>
 );

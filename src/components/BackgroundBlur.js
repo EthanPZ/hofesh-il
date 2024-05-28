@@ -1,4 +1,8 @@
-export default function BackgroundBlur({ onToggleOpen, jsConfetti }) {
+import { useUI } from "../contexts/UIContext";
+
+export default function BackgroundBlur() {
+  const { handleToggleOpen: onToggleOpen, jsConfetti } = useUI();
+
   return (
     <div
       className="bg-blur"

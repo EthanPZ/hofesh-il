@@ -1,9 +1,9 @@
 import Header from "./Header";
 
-export default function MainContainer({ query, setQuery, children }) {
+export default function MainContainer({ children }) {
   return (
     <div className="main-container">
-      <Header query={query} setQuery={setQuery} />
+      <Header />
       {children}
     </div>
   );

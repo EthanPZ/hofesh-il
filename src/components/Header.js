@@ -1,4 +1,8 @@
-export default function Header({ query, setQuery }) {
+import { useHolidays } from "../contexts/HolidaysContext";
+
+export default function Header() {
+  const { query, setQuery } = useHolidays();
+
   return (
     <header className="header">
       <div>

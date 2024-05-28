@@ -1,12 +1,14 @@
 import daysLeft from "../functions/daysLeft";
 import convertToIsraeliDate from "../functions/convertToIsraeliDate";
 import BackgroundBlur from "./BackgroundBlur";
-import JSConfetti from "js-confetti";
 import { formatJewishDateInHebrew, toJewishDate } from "jewish-date";
+import { useUI } from "../contexts/UIContext";
+import { useHolidays } from "../contexts/HolidaysContext";
 
-const jsConfetti = new JSConfetti();
+export default function Modal() {
+  const { selectedHoliday } = useHolidays();
+  const { handleToggleOpen: onToggleOpen, isOpened, jsConfetti } = useUI();
 
-export default function Modal({ onToggleOpen, isOpened, selectedHoliday }) {
   if (daysLeft(selectedHoliday?.date) <= 0 && isOpened)
     jsConfetti.addConfetti({
       confettiNumber: 50,
@@ -61,9 +63,7 @@ export default function Modal({ onToggleOpen, isOpened, selectedHoliday }) {
         )}
       </div>
 
-      {isOpened && (
-        <BackgroundBlur onToggleOpen={onToggleOpen} jsConfetti={jsConfetti} />
-      )}
+      {isOpened && <BackgroundBlur />}
     </>
   );
 }

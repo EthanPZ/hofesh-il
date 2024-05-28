@@ -1,6 +1,11 @@
+import { useHolidays } from "../contexts/HolidaysContext";
+import { useUI } from "../contexts/UIContext";
 import daysLeft from "../functions/daysLeft";
 
-export default function Holiday({ holiday, onToggleOpen, setSelectedHoliday }) {
+export default function Holiday({ holiday }) {
+  const { setSelectedHoliday } = useHolidays();
+  const { handleToggleOpen: onToggleOpen } = useUI();
+
   return (
     <article
       className="holiday"
