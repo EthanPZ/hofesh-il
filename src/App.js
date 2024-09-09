@@ -6,12 +6,20 @@ import MainContainer from "./components/MainContainer";
 import Modal from "./components/Modal";
 import CurrentState from "./components/CurrentState";
 import { useHolidays } from "./contexts/HolidaysContext";
+import Message from "./components/Message";
 
 export default function App() {
   const { isLoading, error, isNoResults, holidaysArr } = useHolidays();
 
   return (
     <>
+      <Message>
+        <p>
+          <strong>עדכון:</strong> היינו מודעים לבעיה עם התאריכים באתר, וכעת היא
+          תוקנה. תודה על סבלנותכם. סליחה.
+        </p>
+      </Message>
+
       <MainContainer>
         {isLoading ? (
           <CurrentState>טוען...</CurrentState>

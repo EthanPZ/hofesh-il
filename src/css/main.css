@@ -150,6 +150,18 @@ a {
   font-size: 20px;
 }
 
+.message {
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--divBg);
+  width: 80%;
+  max-width: 1500px;
+  margin: auto;
+  border: 1px solid #8f00ff;
+  box-shadow: inset #000 0px 0px 20px -10px;
+  margin-bottom: 20px;
+}
+
 .x-icon {
   position: sticky;
   top: 0;
@@ -167,6 +179,12 @@ a {
 .current-state {
   text-align: center;
   font-size: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .message {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 860px) {

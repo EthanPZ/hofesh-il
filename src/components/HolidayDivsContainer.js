@@ -1,21 +1,39 @@
 import Featured from "./Featured";
 import daysLeft from "../functions/daysLeft";
 import FeaturedHoliday from "./FeaturedHoliday";
-
-const summerDaysLeft = daysLeft(`${new Date().getFullYear()}-06-20`);
-const backToSchoolDaysLeft = daysLeft(`${new Date().getFullYear()}-09-01`);
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function HolidayDivsContainer({ children }) {
+  const [summer, setSummer] = useState(
+    daysLeft(`${new Date().getFullYear()}-06-20`)
+  );
+  const [school, setSchool] = useState(
+    daysLeft(`${new Date().getFullYear()}-09-01`)
+  );
+
+  useEffect(() => {
+    if (summer <= 0) {
+      setSummer(daysLeft(`${new Date().getFullYear() + 1}-06-20`));
+    }
+
+    if (school <= 0) {
+      setSchool(daysLeft(`${new Date().getFullYear() + 1}-09-01`));
+    }
+  }, [summer, school]);
+
   return (
     <div className="holiday-divs-container">
-      {summerDaysLeft <= 0 ? (
+      {summer <= 0 ? (
         <FeaturedHoliday>
           <Featured>
             <p>החזרה ללימודים</p>
           </Featured>
 
           <Featured>
-            <p>נותרו עוד {backToSchoolDaysLeft} ימים</p>
+            <p>
+              {school > 1 ? `נותרו עוד ${school} ימים` : "נותר עוד יום אחד"}
+            </p>
           </Featured>
         </FeaturedHoliday>
       ) : (
@@ -25,7 +43,9 @@ export default function HolidayDivsContainer({ children }) {
           </Featured>
 
           <Featured>
-            <p>נותרו עוד {summerDaysLeft} ימים</p>
+            <p>
+              {summer > 1 ? `נותרו עוד ${summer} ימים` : "נותר עוד יום אחד"}
+            </p>
           </Featured>
         </FeaturedHoliday>
       )}

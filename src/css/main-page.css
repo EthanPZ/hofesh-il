@@ -38,7 +38,7 @@
 .header h1,
 .header h2 {
   font-size: var(--holidayFontSize);
-  font-weight: 300;
+  font-weight: 400;
 
   background-image: linear-gradient(
     to left,
@@ -125,6 +125,8 @@
   background-color: var(--divBg);
   border-radius: 999px;
   padding: 5px 10px;
+  width: fit-content;
+  margin: auto;
 }
 
 .footer-wrapper {
