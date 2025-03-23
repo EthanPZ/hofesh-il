@@ -5,22 +5,26 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default function HolidayDivsContainer({ children }) {
-  const [summer, setSummer] = useState(
-    daysLeft(`${new Date().getFullYear()}-06-20`)
-  );
-  const [school, setSchool] = useState(
-    daysLeft(`${new Date().getFullYear()}-09-01`)
-  );
+  const [summer, setSummer] = useState(0);
+  const [school, setSchool] = useState(0);
 
   useEffect(() => {
-    if (summer <= 0) {
-      setSummer(daysLeft(`${new Date().getFullYear() + 1}-06-20`));
+    const thisYear = new Date().getFullYear();
+
+    let summerDays = daysLeft(`${thisYear}-06-20`);
+    let schoolDays = daysLeft(`${thisYear}-09-01`);
+
+    if (summerDays <= 0) {
+      schoolDays = daysLeft(`${thisYear}-09-01`);
     }
 
-    if (school <= 0) {
-      setSchool(daysLeft(`${new Date().getFullYear() + 1}-09-01`));
+    if (schoolDays <= 0) {
+      summerDays = daysLeft(`${thisYear + 1}-06-20`);
     }
-  }, [summer, school]);
+
+    setSummer(summerDays);
+    setSchool(schoolDays);
+  }, []);
 
   return (
     <div className="holiday-divs-container">
